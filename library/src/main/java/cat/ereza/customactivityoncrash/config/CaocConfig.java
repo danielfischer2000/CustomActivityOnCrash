@@ -48,7 +48,6 @@ public class CaocConfig implements Serializable {
     private boolean logErrorOnRestart = true;
     private boolean trackActivities = false;
     private int minTimeBetweenCrashesMs = 3000;
-    private Integer errorDrawable = null;
     private Class<? extends Activity> errorActivityClass = null;
     private Class<? extends Activity> restartActivityClass = null;
     private CustomActivityOnCrash.CustomCrashDataCollector customCrashDataCollector = null;
@@ -112,16 +111,6 @@ public class CaocConfig implements Serializable {
     }
 
     @Nullable
-    @DrawableRes
-    public Integer getErrorDrawable() {
-        return errorDrawable;
-    }
-
-    public void setErrorDrawable(@Nullable @DrawableRes Integer errorDrawable) {
-        this.errorDrawable = errorDrawable;
-    }
-
-    @Nullable
     public Class<? extends Activity> getErrorActivityClass() {
         return errorActivityClass;
     }
@@ -173,7 +162,6 @@ public class CaocConfig implements Serializable {
             config.logErrorOnRestart = currentConfig.logErrorOnRestart;
             config.trackActivities = currentConfig.trackActivities;
             config.minTimeBetweenCrashesMs = currentConfig.minTimeBetweenCrashesMs;
-            config.errorDrawable = currentConfig.errorDrawable;
             config.errorActivityClass = currentConfig.errorActivityClass;
             config.customCrashDataCollector = currentConfig.customCrashDataCollector;
             config.restartActivityClass = currentConfig.restartActivityClass;
@@ -271,17 +259,6 @@ public class CaocConfig implements Serializable {
         @NonNull
         public Builder minTimeBetweenCrashesMs(int minTimeBetweenCrashesMs) {
             config.minTimeBetweenCrashesMs = minTimeBetweenCrashesMs;
-            return this;
-        }
-
-        /**
-         * Defines which drawable to use in the default error activity image.
-         * Set this if you want to use an image other than the default one.
-         * The default is R.drawable.customactivityoncrash_error_image (a cute upside-down bug).
-         */
-        @NonNull
-        public Builder errorDrawable(@Nullable @DrawableRes Integer errorDrawable) {
-            config.errorDrawable = errorDrawable;
             return this;
         }
 

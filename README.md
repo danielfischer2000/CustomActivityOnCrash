@@ -49,7 +49,6 @@ public void onCreate() {
         .logErrorOnRestart(false) //default: true
         .trackActivities(true) //default: false
         .minTimeBetweenCrashesMs(2000) //default: 3000
-        .errorDrawable(R.drawable.ic_custom_drawable) //default: bug image
         .restartActivity(YourCustomActivity.class) //default: null (your app's launch activity)
         .errorActivity(YourCustomErrorActivity.class) //default: null (default error activity)
         .eventListener(new YourCustomEventListener()) //default: null
@@ -126,13 +125,6 @@ minTimeBetweenCrashesMs(boolean);
 > The default is `3000`.
 
 ```java
-errorDrawable(Integer);
-```
-> This method allows changing the default upside-down bug image with an image of your choice.
-> You can pass a resource id for a drawable or a mipmap.
-> The default is `null` (the bug image is used).
-
-```java
 restartActivity(Class<? extends Activity>);
 ```
 > This method sets the activity that must be launched by the error activity when the user presses the button to restart the app.
@@ -206,11 +198,6 @@ If you want to specify a specific theme only for the error activity, you can do 
     android:theme="@style/YourThemeHere"
     android:process=":error_activity" />
 ```
-
-**Image:**
-
-By default, an image of a bug is displayed. You can change it to any image by using the provided `errorDrawable(int)` method.
-You can also do it the old way and create a `customactivityoncrash_error_image` drawable on all density buckets (mdpi, hdpi, xhdpi, xxhdpi and xxxhdpi).
 
 **Strings:**
 
@@ -311,6 +298,3 @@ The inner workings are based on [ACRA](https://github.com/ACRA/acra)'s dialog re
 Any contribution in order to make this library better will be welcome!
 
 The library is licensed under the [Apache License 2.0](https://github.com/Ereza/CustomActivityOnCrash/blob/master/LICENSE).
-
-The bug image used in the default error activity is licensed under CC-BY by Riff: https://www.sketchport.com/drawing/6119265933459456/lady-bug
-If you use the image in your app, don't forget to mention that!

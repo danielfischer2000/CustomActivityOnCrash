@@ -56,9 +56,6 @@ public class SampleCrashingApplication extends Application {
                 //If a crash has occurred less that this time ago, the error activity will not be launched
                 //and the system crash screen will be invoked.
 //                .minTimeBetweenCrashesMs(2000)
-                //This shows a different image on the error activity, instead of the default upside-down bug.
-                //You may use a drawable or a mipmap.
-//                .errorDrawable(R.mipmap.ic_launcher)
                 //This sets the restart activity.
                 //If you set this, this will be used. However, you can also set it with an intent-filter:
                 //  <action android:name="cat.ereza.customactivityoncrash.RESTART" />
